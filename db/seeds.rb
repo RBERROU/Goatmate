@@ -17,42 +17,47 @@ User.destroy_all
 puts "Creating users..."
 
 # Create 2 owners
+
 owner1 = User.create!(
   email: Faker::Internet.email,
+  password: "password",
   owner: 1
 )
 
 owner2 = User.create!(
   email: Faker::Internet.email,
+  password: "password",
   owner: 1
 )
 
 # Create 2 non-owners
 non_owner1 = User.create!(
   email: Faker::Internet.email,
+  password: "password",
   owner: 0
 )
 
 non_owner2 = User.create!(
   email: Faker::Internet.email,
+  password: "password",
   owner: 0
 )
 
 puts "Creating goats..."
 
 # Create 10 goats, 5 for each owner
-5.times do
+5.times do |i|
   Goat.create!(
-    name: Faker::Creature::Animal.name,
+    name: "#{Faker::Creature::Animal.name}_#{i}_#{SecureRandom.hex(3)}",
     bio: Faker::Lorem.paragraph(sentence_count: 2),
     price_per_day: rand(10..30),
     user: owner1
   )
 end
 
-5.times do
+5.times do |i|
   Goat.create!(
-    name: Faker::Creature::Animal.name,
+    name: "#{Faker::Creature::Animal.name}_#{i}_#{SecureRandom.hex(3)}",
     bio: Faker::Lorem.paragraph(sentence_count: 2),
     price_per_day: rand(10..30),
     user: owner2
