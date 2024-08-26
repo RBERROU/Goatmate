@@ -4,7 +4,6 @@ class CreateGoats < ActiveRecord::Migration[7.1]
       t.string :name
       t.text :bio
       t.decimal :price_per_day
-      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

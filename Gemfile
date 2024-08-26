@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 ruby "3.1.2"
+gem 'devise'
 
 # More realistic and varied content data
 gem 'faker'
