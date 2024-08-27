@@ -1,12 +1,10 @@
   <div class="container mt-5">
-    <h1 class="mb-4">Goats for Rent</h1>
-
-      <div class="goat-container">
-        <div class="goat-info">
-          <h3><%= @goat.name %></h3>
-          <p>Price per day: $<%= @goat.price_per_day %></p>
+        <div class="goat-container d-flex align-items-center justify-content-center">
+          <div class="goat-info m-5">
+            <h1><%= @goat.name %></h1>
+            <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
+          </div>
+          <img src="<%= asset_path('goat1.jpg') %>" alt="<%= @goat.name %>" class="goat-image big-goat-profile-pic m-5">
         </div>
-        <img src="<%= asset_path('goat1.jpg') %>" alt="<%= @goat.name %>" class="goat-image">
-      </div>
+      </h1>
 
-  </div>
