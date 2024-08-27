@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root to: "pages#index"
 
+  get 'dashboard', to: 'pages#dashboard'
+
   resources :goats, only: [:show] do
     resources :bookings, only: [:new, :create]
   end

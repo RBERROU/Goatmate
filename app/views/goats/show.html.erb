@@ -1,13 +1,18 @@
-
-<div class="container mt-5">
-    <h1><%= @goat.name %></h1>
-    <% if @goat.image.attached? %>
-        <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid">
-    <% else %>
-        <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid">
-    <% end %>
-    <p>Price per day: $<%= @goat.price_per_day %></p>
+  <div class="container mt-5">
+        <div class="goat-container d-flex align-items-center justify-content-center">
+          <div class="goat-info m-5">
+            <h1><%= @goat.name %></h1>
+            <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
+          </div>
+              <% if @goat.image.attached? %>
+                <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+              <% else %>
+               <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+              <% end %>
+        </div>
+        <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn btn-primary' %>
     <p><%= @goat.bio %></p>
+   </div>
+    
 
-    <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn btn-primary' %>
-</div>
+
