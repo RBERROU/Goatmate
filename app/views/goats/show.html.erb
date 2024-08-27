@@ -7,6 +7,7 @@
           <p>Price per day: $<%= @goat.price_per_day %></p>
         </div>
         <img src="<%= asset_path('goat1.jpg') %>" alt="<%= @goat.name %>" class="goat-image">
+        <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn btn-primary' %>
       </div>
 
   </div>
