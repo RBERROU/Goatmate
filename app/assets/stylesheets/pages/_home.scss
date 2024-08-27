@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+
+  .header {
+    font-size: 70px;
+    color: #F2E8C6;
+  }
+
+  #tagline {
+    font-size: 20px;
+  }
+
+  .button-52 {
+    color: rgb(0, 1, 0);
+    background:  rgb(229, 236, 213);
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 48px;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      color: black;
+      background: rgb(148, 200, 230);
+    }
+  }
