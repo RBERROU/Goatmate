@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Goat</th>
+      <th>Status</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.goat.name %></td>
+        <td><%= booking.status %></td>
+        <td><%= number_to_currency(booking.total_price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
