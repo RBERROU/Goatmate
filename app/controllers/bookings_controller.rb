@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       end
     else
       # The user is not logged in
-      redirect_to new_user_registration_path
+      redirect_to user_session_path
     end
   end
 
