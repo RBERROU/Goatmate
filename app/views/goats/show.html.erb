@@ -1,0 +1,12 @@
+  <div class="container mt-5">
+    <h1 class="mb-4">Goats for Rent</h1>
+
+      <div class="goat-container">
+        <div class="goat-info">
+          <h3><%= @goat.name %></h3>
+          <p>Price per day: $<%= @goat.price_per_day %></p>
+        </div>
+        <img src="<%= asset_path('goat1.jpg') %>" alt="<%= @goat.name %>" class="goat-image">
+      </div>
+
+  </div>
