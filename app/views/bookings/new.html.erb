@@ -1,0 +1,7 @@
+<h1>Book <%= @goat.name %></h1>
+
+<%= simple_form_for @booking, url: goat_bookings_path(@goat) do |form| %>
+  <%= form.input :total_price, label: 'Total Price', as: :numeric %>
+
+  <%= form.button :submit, 'Create Booking', class: 'btn btn-primary' %>
+<% end %>
