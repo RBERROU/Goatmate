@@ -53,23 +53,29 @@ non_owner2 = User.create!(
 
 puts "Creating goats..."
 
-# Create 10 goats, 5 for each owner
-5.times do
-  Goat.create!(
-    name: Faker::Creature::Animal.name,
-    bio: Faker::Lorem.paragraph(sentence_count: 2),
-    price_per_day: rand(10..30),
-    user: owner1
-  )
-end
+# Paths to your 10 unique goat images
+image_paths = [
+  'app/assets/images/goat1.jpg',
+  'app/assets/images/goat2.jpg',
+  'app/assets/images/goat3.jpg',
+  'app/assets/images/goat4.jpg',
+  'app/assets/images/goat5.jpg',
+  'app/assets/images/goat6.jpg',
+  'app/assets/images/goat7.jpg',
+  'app/assets/images/goat8.jpg',
+  'app/assets/images/goat9.jpg',
+  'app/assets/images/goat10.jpg'
+]
 
-5.times do
-  Goat.create!(
+# Create 10 goats, 5 for each owner, with unique images
+10.times do |i|
+  goat = Goat.create!(
     name: Faker::Creature::Animal.name,
     bio: Faker::Lorem.paragraph(sentence_count: 2),
     price_per_day: rand(10..30),
-    user: owner2
+    user: i < 5 ? owner1 : owner2
   )
+  goat.image.attach(io: File.open(image_paths[i]), filename: "goat#{i + 1}.jpg")
 end
 
 puts "Creating bookings..."
