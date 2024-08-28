@@ -8,5 +8,41 @@
 }
 
 .navbar-lewagon .navbar-brand img {
+  width: 60px;
+  height: 50px;
+}
+
+#goatlink {
+  color: #242323;
+  text-shadow: 1px 1px 2px rgba(58, 55, 55, 0.3);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+#goatlink:hover {
+  color: #090909;
+  text-shadow: 1px 1px 4px rgba(54, 50, 50, 0.5);
+}
+
+.dropdown-item {
+  color: #333;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: #007bff;
+}
+
+
+.avatar {
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
 }
