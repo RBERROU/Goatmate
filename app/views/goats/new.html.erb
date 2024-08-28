@@ -1,0 +1,38 @@
+<h1>Add a New Goat</h1>
+
+<%= form_with model: @goat, local: true do |form| %>
+  <% if @goat.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@goat.errors.count, "error") %> prohibited this goat from being saved:</h4>
+      <ul>
+        <% @goat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price_per_day %>
+    <%= form.number_field :price_per_day, class: 'form-control', step: 0.01, required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bio %>
+    <%= form.text_area :bio, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: 'form-control', required: true %>
+  </div>
+
+  <%= form.submit 'Add Goat', class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back to Home', root_path, class: 'btn btn-secondary mt-3' %>
