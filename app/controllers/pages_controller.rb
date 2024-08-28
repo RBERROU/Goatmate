@@ -7,5 +7,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @bookings = current_user.bookings.includes(:goat)
+    @goats = current_user.goats
   end
 end
