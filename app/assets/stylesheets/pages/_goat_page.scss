@@ -30,7 +30,7 @@
 
 }
 
-.goat-container {
+.goat-show-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@
   }
 }
 @media (max-width: 1230px) {
-  .goat-container {
+  .goat-show-container {
     flex-wrap: wrap;
   }
   #booking-form {
