@@ -85,21 +85,21 @@ Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'confirmed'
+  status: 'pending'
 )
 
 Booking.create!(
   goat: Goat.all.sample,
   user: non_owner2,
   total_price: rand(30..90),
-  status: 'confirmed'
+  status: 'pending'
 )
 
 Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'confirmed'
+  status: 'pending'
 )
 
 puts "Seed data created!"
