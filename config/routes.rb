@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
 
   resources :goats, only: [:show] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:create]
   end
 end
