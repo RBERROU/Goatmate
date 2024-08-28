@@ -8,54 +8,67 @@
   </div>
 </div>
     <!-- Card Section from Colleague's Code -->
-    <div class="container mt-5">
+    <div class="container mt-4 p-0">
         <div class="card-group">
             <div class="card" style="border: none; box-shadow: none;">
                 <img class="card-img-top" src="https://www.shutterstock.com/image-vector/family-goats-stands-on-white-600nw-2112673421.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">1. Check out all of our Goats</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">1. Check out our Goats</h5>
+                    <p class="card-text">Our herd of goats is diverse, hardworking, and ready to take on any job you have in mind.</p>
                 </div>
             </div>
             <div class="card" style="border: none; box-shadow: none;">
                 <img class="card-img-top" src="<%= asset_path('formphoto.png') %>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">2. Become a Goat Member</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">2. Create an Account</h5>
+                    <p class="card-text">Join our community by creating a GoatMate account today!</p>
                 </div>
             </div>
             <div class="card" style="border: none; box-shadow: none;">
                 <img class="card-img-top" src="<%= asset_path('goatlogo.png') %>" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">3. Choose your GoatMate</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <p class="card-text">Now, choose the perfect goat for your needs and await GoatOwner approval</p>
                 </div>
             </div>
             <div class="card" style="border: none; box-shadow: none;">
                 <img class="card-img-top" src="<%= asset_path('goatman.jpg') %>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">4. You have your Goatmate!</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-title">4. Goatmate!</h5>
+                    <p class="card-text">You’ve got your GoatMate! Get ready for a great experience!</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Goats List Section from Your Code -->
+    <div class="goats-rent-container p-2">
     <div class="container mt-5">
         <h1 class="mb-4">Goats for Rent</h1>
         <div class="goat-container">
             <% @goats.each do |goat| %>
-                <div class="goat-card">
-                    <% if goat.image.attached? %>
-                        <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="goat-image">
-                    <% else %>
-                        <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="goat-image">
-                    <% end %>
-                    <h3><%= goat.name %></h3>
+               <div class="goat-card p-1">
+                  <% if goat.image.attached? %>
+                    <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="goat-image">
+                  <% else %>
+                    <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="goat-image">
+                  <% end %>
+                    <h3><%= link_to goat.name, goat_path(goat), class: 'goat-name-link' %></h3>
                     <p>Price per day: $<%= goat.price_per_day %></p>
-                    <%= link_to 'View Goat', goat_path(goat), class: 'btn btn-primary' %>
                 </div>
             <% end %>
         </div>
     </div>
+    </div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+  </div>
+    This footer is made by Goats 🐐
+</div>
