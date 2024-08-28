@@ -1,23 +1,48 @@
- <div class="container mt-5">
-   <div class="goat-container d-flex align-items-center justify-content-center">
-     <div>
-       <% if @goat.image.attached? %>
-         <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
-       <% else %>
-          <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
-       <% end %>
-     </div>
-       <div class="goat-info m-3 d-flex flex-column align-items-center">
-         <h1 class='goat-name'><%= @goat.name %></h1>
-         <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
-         <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn active bookThisGoat' %>
-       </div>
-       <p><%= @goat.bio %></p>
+<div class="container mt-5">
+  <div class="goat-container d-flex flex-row align-items-start justify-content-between">
+
+    <!-- Goat Image and Information -->
+    <div>
+      <% if @goat.image.attached? %>
+        <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+      <% else %>
+        <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+      <% end %>
     </div>
- </div>  
-  
 
+    <div class="goat-info m-3 d-flex flex-column align-items-center">
+      <h1 class='goat-name'><%= @goat.name %></h1>
+      <p><%= @goat.bio %></p>
+      <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
+    </div>
 
+    <!-- Booking Form Card -->
+    <div class="col-md-4">
+      <div class="card sticky-top booking-card">
+        <div class="card-body">
+          <h2 class="card-title">Book this Goat</h2>
 
-    
+          <%= simple_form_for([@goat, @booking], html: { class: 'booking-form' }) do |f| %>
+            <div class="form-group mb-3">
+              <%= f.label :rent_start, 'Start Date' %>
+              <%= f.date_field :rent_start, class: 'form-control' %>
+            </div>
 
+            <div class="form-group mb-3">
+              <%= f.label :rent_end, 'End Date' %>
+              <%= f.date_field :rent_end, class: 'form-control' %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= f.hidden_field :status, value: 'pending' %>
+            </div>
+
+            <div class="form-group d-grid">
+              <%= f.submit 'Book Now', class: 'btn btn-primary btn-lg' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
