@@ -26,3 +26,31 @@
       background: rgb(148, 200, 230);
     }
   }
+
+  .banner {
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+.goat-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.goat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.goat-card {
+    width: 200px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.card-group .card {
+    margin-bottom: 20px;
+}
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+}
