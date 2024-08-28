@@ -14,17 +14,19 @@
     color: rgb(0, 1, 0);
     background:  rgb(238, 241, 230);
     border: 2px solid #111;
-    border-radius: 8px;
+    border-radius: 10px;
     box-sizing: border-box;
     font-size: 16px;
-    height: 40px;
-    padding: 0 25px;
-    position: relative;
+    height: 80px;
+    padding: 0 50px;
+    line-height: 80px;
     text-align: center;
+    text-decoration: none;
 
     &:hover {
       color: rgb(238, 241, 230);
       background: #323028;
+      text-decoration: none;
     }
   }
 
@@ -36,7 +38,9 @@
 .goat-image {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 5px;
 }
 .goat-container {
     display: flex;
@@ -49,7 +53,7 @@
     text-align: center;
 }
 .card-group .card {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .navbar h2 img {
     width: 60px;
@@ -92,6 +96,7 @@
 }
 }
 
+
 .goats-rent-container {
   background-color: #878282;
   border: none;
@@ -103,6 +108,7 @@
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #1e1e1d;
   }
 }
