@@ -17,3 +17,54 @@
   font-size: 100px;
   font-weight: bold;
 }
+
+.goat-info {
+  border-radius: 30px;
+  margin: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+
+}
+
+.goat-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#goat-price {
+  display: flex;
+  align-items: baseline;
+  h2 {
+    font-size: 50px;
+    font-weight: bold;
+    align-self: flex-start;
+  }
+  h3 {
+    font-size: 80px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+}
+
+#booking-form {
+  margin-left: 100px;
+}
+@media (max-width: 920px) {
+  .goat-info {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1230px) {
+  .goat-container {
+    flex-wrap: wrap;
+  }
+  #booking-form {
+    margin-left: 0;
+  }
+}

@@ -1,25 +1,27 @@
 <div class="container mt-5">
-  <div class="goat-container d-flex flex-row align-items-start justify-content-between">
-
-    <!-- Goat Image and Information -->
-    <div>
-      <% if @goat.image.attached? %>
-        <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
-      <% else %>
-        <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
-      <% end %>
-    </div>
-
-    <div class="goat-info m-3 d-flex flex-column align-items-center">
-      <h1 class='goat-name'><%= @goat.name %></h1>
-      <p><%= @goat.bio %></p>
-      <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
-    </div>
-
-    <!-- Booking Form Card -->
-    <div class="col-md-4">
+   <div class="goat-container">
+       <div class="goat-info user-select-none">
+     <div>
+        <div>
+          <h1 class='goat-name'><%= @goat.name %></h1>
+          <h6><%= @goat.bio %></h6>
+        </div>
+        <div id='goat-price' class='text-center'>
+          <h2>$</h2>
+          <h3><%= @goat.price_per_day %></h3>
+          <h4>/day</h4>
+        </div>
+     </div>
+       <% if @goat.image.attached? %>
+         <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+       <% else %>
+          <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+       <% end %>
+       </div>
+           <!-- Booking Form Card -->
+    <div id='booking-form'>
       <div class="card sticky-top booking-card">
-        <div class="card-body">
+        <div  class="card-body">
           <h2 class="card-title">Book this Goat</h2>
 
           <%= simple_form_for([@goat, @booking], html: { class: 'booking-form' }) do |f| %>
@@ -44,5 +46,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+ </div>
