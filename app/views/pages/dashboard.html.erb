@@ -1,18 +1,64 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Goat</th>
-      <th>Status</th>
-      <th>Total Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.goat.name %></td>
-        <td><%= booking.status %></td>
-        <td><%= number_to_currency(booking.total_price) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container mt-5">
+  <div class="row">
+    <!-- Current Bookings Section -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4>Current Bookings</h4>
+        </div>
+        <div class="card-body">
+          <% if @bookings.any? %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Goat</th>
+                  <th>Status</th>
+                  <th>Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @bookings.each do |booking| %>
+                  <tr>
+                    <td><%= booking.goat.name %></td>
+                    <td><%= booking.status %></td>
+                    <td><%= number_to_currency(booking.total_price) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <p>No current bookings.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your Goats Section -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4>Your Goats</h4>
+        </div>
+        <div class="card-body">
+          <% if @goats.any? %>
+            <div class="goats-list">
+              <% @goats.each do |goat| %>
+                <div class="goat-card mb-3">
+                  <% if goat.image.attached? %>
+                    <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="img-fluid goat-image" />
+                  <% else %>
+                    <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="img-fluid goat-image" />
+                  <% end %>
+                  <h3><%= goat.name %></h3>
+                  <p>Price per day: $<%= goat.price_per_day %></p>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p>You don't have any goats listed yet.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
