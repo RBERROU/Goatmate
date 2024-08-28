@@ -1,12 +1,23 @@
-  <div class="container mt-5">
-        <div class="goat-container d-flex align-items-center justify-content-center">
-        <div>
-          <img src="<%= asset_path('goat1.jpg') %>" alt="<%= @goat.name %>" class="goat-image big-goat-profile-pic mt-5">
-          <div class="goat-info m-3 d-flex flex-column align-items-center">
-            <h1 class='goat-name'><%= @goat.name %></h1>
-            <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
-            <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn active bookThisGoat' %>
-          </div>
-        </div>
-        </div>  </div>
-      </div>
+ <div class="container mt-5">
+   <div class="goat-container d-flex align-items-center justify-content-center">
+     <div>
+       <% if @goat.image.attached? %>
+         <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+       <% else %>
+          <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="img-fluid goat-image big-goat-profile-pic m-5">
+       <% end %>
+     </div>
+       <div class="goat-info m-3 d-flex flex-column align-items-center">
+         <h1 class='goat-name'><%= @goat.name %></h1>
+         <h4 class='text-center'>$<%= @goat.price_per_day %>/day</h4>
+         <%= link_to 'Book this Goat', new_goat_booking_path(@goat), class: 'btn active bookThisGoat' %>
+       </div>
+       <p><%= @goat.bio %></p>
+    </div>
+ </div>  
+  
+
+
+
+    
+
