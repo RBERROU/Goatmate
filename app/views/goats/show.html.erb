@@ -1,16 +1,36 @@
+
 <div class="container mt-5">
    <div class="goat-show-container">
        <div class="goat-info user-select-none">
      <div>
         <div>
           <h1 class='goat-name'><%= @goat.name %></h1>
-          <h6><%= @goat.bio %></h6>
+          <p><%= @goat.bio %></p>
         </div>
         <div id='goat-price' class='text-center'>
-          <h2>$</h2>
-          <h3><%= @goat.price_per_day %></h3>
-          <h4>/day</h4>
+          <p>$</p>
+          <p><%= @goat.price_per_day %></p>
+          <p>/day</p>
         </div>
+          <div class="container">
+            <p>Hearding</p>
+            <div class="skills hearding" style="width: <%= @goat_skills[:hearding] %>%;"><%= @goat_skills[:hearding] %>%</div>
+          </div>
+
+          <p>Cuteness</p>
+            <div class="container">
+              <div class="skills cuteness" style="width: <%= @goat_skills[:cuteness] %>%;"><%= @goat_skills[:cuteness] %>%</div>
+            </div>
+
+          <p>Friendly</p>
+            <div class="container">
+              <div class="skills friendly" style="width: <%= @goat_skills[:friendly] %>%;"><%= @goat_skills[:friendly] %>%</div>
+            </div>
+
+          <p>Climbing</p>
+            <div class="container">
+               <div class="skills climbing" style="width: <%= @goat_skills[:climbing] %>%;"><%= @goat_skills[:climbing] %>%</div>
+            </div>
      </div>
        <% if @goat.image.attached? %>
          <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
@@ -48,3 +68,4 @@
     </div>
     </div>
  </div>
+
