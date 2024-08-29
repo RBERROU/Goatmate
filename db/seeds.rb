@@ -70,7 +70,7 @@ image_paths = [
 # Create 10 goats, 5 for each owner, with unique images
 10.times do |i|
   goat = Goat.create!(
-    name: Faker::Creature::Animal.name,
+    name: Faker::Creature::Animal.unique.name,
     bio: Faker::Lorem.paragraph(sentence_count: 2),
     price_per_day: rand(10..30),
     user: i < 5 ? owner1 : owner2
@@ -81,25 +81,34 @@ end
 puts "Creating bookings..."
 
 # Create 3 bookings on different goats
+
+rent_start = Faker::Date.between(from: 2.days.ago, to: Date.today)
+
 Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'pending'
+  status: ['pending', 'approved', 'rejected'].sample,
+  rent_start: rent_start,
+  rent_end: Faker::Date.between(from: rent_start, to: rent_start + 4.days)
 )
 
 Booking.create!(
   goat: Goat.all.sample,
   user: non_owner2,
   total_price: rand(30..90),
-  status: 'pending'
+  status: ['pending', 'approved', 'rejected'].sample,
+  rent_start: rent_start,
+  rent_end: Faker::Date.between(from: rent_start, to: rent_start + 10.days)
 )
 
 Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'pending'
+  status: ['pending', 'approved', 'rejected'].sample,
+  rent_start: rent_start,
+  rent_end: Faker::Date.between(from: rent_start, to: rent_start + 2.days)
 )
 
 puts "Seed data created!"
