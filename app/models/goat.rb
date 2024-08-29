@@ -5,7 +5,7 @@ class Goat < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :price_per_day, presence: true
-  validates :bio, presence: true
+  validates :bio, presence: true, length: { maximum: 50 }
 
   # Comment out this line to remove the user presence validation
   # validates :user, presence: true
