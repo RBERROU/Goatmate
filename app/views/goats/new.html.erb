@@ -1,6 +1,8 @@
-<h1>Add a New Goat</h1>
 
-<%= form_with model: @goat, local: true do |form| %>
+<%= javascript_include_tag 'form_monitor' %>
+<div class='new-goat-form-container'>
+<h1 class='text-center'>Register a Goat</h1>
+<%= form_with model: @goat, local: true, html: { id: 'goat-add-form' } do |form| %>
   <% if @goat.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(@goat.errors.count, "error") %> prohibited this goat from being saved:</h4>
@@ -11,28 +13,48 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control', required: true %>
+   <div>
+   </div>
+<div class='new-goat-row-container'>
+  <div class='new-goat-label-container'>
+    <h3>Goat info</h3>
+    <p>provide your goat's name and Bio</p>
   </div>
 
-  <div class="form-group">
-    <%= form.label :price_per_day %>
-    <%= form.number_field :price_per_day, class: 'form-control', step: 0.01, required: true %>
+  <div class='new-goat-input-container'>
+    <div class="add-goat-form-group">
+      <%= form.label :name%>
+      <%= form.text_field :name, class: 'input-hide', required: true %>
+    </div>
+    <div class="add-goat-form-group">
+      <%= form.label :bio %>
+      <%= form.text_area :bio, class: 'input-hide', required: true %>
+    </div>
+  </div>
+</div>
+
+<div class='new-goat-row-container'>
+  <div class='new-goat-label-container'>
+    <h3>extra info</h3>
+    <p>provide daily cost and profile image</p>
   </div>
 
-  <div class="form-group">
-    <%= form.label :bio %>
-    <%= form.text_area :bio, class: 'form-control', required: true %>
-  </div>
+  <div class='new-goat-input-container'>
+    <div class="add-goat-form-group">
+      <%= form.label :price_per_day %>
+      <%= form.number_field :price_per_day, class: 'input-hide', step: 0.01, required: true %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :image %>
-    <%= form.file_field :image, class: 'form-control', required: true %>
+    <div class="add-goat-form-group">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: 'input-hide', required: true %>
+    </div>
   </div>
-
-  <%= form.submit 'Add Goat', class: 'btn btn-primary' %>
+</div>
+  <div class='goat-add-btn-row'>
+    <%= link_to 'Back to Home', root_path, class: 'goat-btn back-to-home-btn' %>
+    <%= form.submit 'Add Goat', id: 'goat-add-submit', class: 'goat-btn' %>
+  </div>
 <% end %>
 
-<%= link_to 'Back to Home', root_path, class: 'btn btn-secondary mt-3' %>
+</div>

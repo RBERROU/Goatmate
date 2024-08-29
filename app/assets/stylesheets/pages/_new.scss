@@ -1,0 +1,67 @@
+.new-goat-form-container {
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.new-goat-input-container {
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.new-goat-label-container {
+  flex-grow: 2;
+}
+
+.new-goat-row-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 4px rgb(245, 245, 245);
+}
+
+.goat-add-btn-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.add-goat-form-group {
+  border-radius: 10px;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: column;
+  color:rgba($color: #000000, $alpha: 0.7);
+
+  >* {
+    margin-left: 15px;
+  }
+  margin-bottom: 10px;
+  padding:10px;
+}
+
+.input-hide {
+  background: none;
+  border:none;
+}
+
+.input-hide:focus {
+  outline: none;
+}
+
+
+@media (max-width: 900px) {
+  .new-goat-row-container {
+    flex-direction: column;
+  }
+}
+
+/* Default styling for the submit button */
+.all-filled {
+  background-color: green;
+}
