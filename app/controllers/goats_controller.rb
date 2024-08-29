@@ -9,6 +9,7 @@ class GoatsController < ApplicationController
       friendly: rand(10..100),
       climbing: rand(10..100)
     }
+    @owner = @goat.user
   end
 
   def new
@@ -18,11 +19,22 @@ class GoatsController < ApplicationController
   def create
     @goat = Goat.new(goat_params)
     @goat.user = current_user
+    @goat.approved = false
 
     if @goat.save
-      redirect_to root_path, notice: 'Goat was successfully created.'
+      redirect_to dashboard_path, notice: 'Your goat has been submitted for approval.'
+      # You could also trigger an email or notification to the owner here
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def approve
+    @goat = Goat.find(params[:id])
+    if @goat.update(approved: true)
+      redirect_to dashboard_path, notice: 'Goat approved successfully.'
+    else
+      redirect_to dashboard_path, alert: 'There was a problem approving the goat.'
     end
   end
 

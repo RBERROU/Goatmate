@@ -62,4 +62,32 @@
       </div>
     </div>
   </div>
+
+  <!-- Pending Bookings Section -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4>Pending Bookings</h4>
+        </div>
+        <div class="card-body">
+          <% if @pending_bookings.any? %>
+            <ul class="list-group">
+              <% @pending_bookings.each do |booking| %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Booking for <%= booking.goat.name %>
+                  <div>
+                    <%= button_to 'Approve', approve_goat_booking_path(booking.goat_id, booking), method: :patch, class: 'btn btn-success' %>
+                    <%= button_to 'Reject', reject_goat_booking_path(booking.goat_id, booking), method: :patch, class: 'btn btn-danger' %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No bookings pending approval.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

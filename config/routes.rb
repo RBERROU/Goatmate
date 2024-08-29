@@ -10,6 +10,16 @@ Rails.application.routes.draw do
     collection do
       get 'random', to: 'goats#random', as: 'random'
     end
-    resources :bookings, only: [:new, :create]
+
+    member do
+      patch :approve  # Route for approving a goat
+    end
+
+    resources :bookings, only: [:new, :create] do
+      member do
+        patch :approve
+        patch :reject
+      end
+    end
   end
 end
