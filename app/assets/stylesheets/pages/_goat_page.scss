@@ -1,8 +1,11 @@
+
 .big-goat-profile-pic {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border-radius: 50%;
+  border: 2px solid $brown;
+  margin: -50px auto 0;
 }
 
 .bookThisGoat {
@@ -10,23 +13,26 @@
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
-  cursor: pointer;
+  color: $brown;
 }
 
 .goat-name {
-  font-size: 100px;
-  font-weight: bold;
+  font-size: 70px;
+  margin-top: 10px;
+  color: $softblack;
+  margin: -60px auto 0;
 }
 
 .goat-info {
   border-radius: 30px;
-  margin: 0.75rem;
+  margin: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+  background-color: $yellow;
 
 }
 
@@ -39,16 +45,9 @@
 #goat-price {
   display: flex;
   align-items: baseline;
-  h2 {
-    font-size: 50px;
-    font-weight: bold;
+  p {
+    font-size: 40px;
     align-self: flex-start;
-  }
-  h3 {
-    font-size: 80px;
-  }
-  h4 {
-    font-size: 20px;
   }
 }
 
@@ -67,4 +66,36 @@
   #booking-form {
     margin-left: 0;
   }
+}
+
+* {box-sizing:border-box}
+
+
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  padding-right: 5px;
+  margin: 10px;
+}
+
+.hearding {
+  background-color: #50c540;
+  border-radius: 30px;
+}
+
+.cuteness {
+  background-color: #c753bd;
+  border-radius: 30px;
+}
+
+.friendly {
+  background-color: #f4a41a;
+  border-radius: 30px;
+}
+.climbing {
+  background-color: #6a5143;
+  border-radius: 30px;
 }
