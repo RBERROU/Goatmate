@@ -1,46 +1,51 @@
 
 <div class="container mt-5">
    <div class="goat-show-container">
-       <div class="goat-info user-select-none">
-     <div>
-        <div>
+       <div class="goat-info user-select-none d-flex">
+      <div class="card-info">
+        <div >
           <h1 class='goat-name'><%= @goat.name %></h1>
-          <p><%= @goat.bio %></p>
         </div>
-        <div id='goat-price' class='text-center'>
-          <p>$</p>
-          <p><%= @goat.price_per_day %></p>
-          <p>/day</p>
-        </div>
-          <div class="container">
-            <p>Hearding</p>
-            <div class="skills hearding" style="width: <%= @goat_skills[:hearding] %>%;"><%= @goat_skills[:hearding] %>%</div>
-          </div>
-
-          <p>Cuteness</p>
-            <div class="container">
-              <div class="skills cuteness" style="width: <%= @goat_skills[:cuteness] %>%;"><%= @goat_skills[:cuteness] %>%</div>
-            </div>
-
-          <p>Friendly</p>
-            <div class="container">
-              <div class="skills friendly" style="width: <%= @goat_skills[:friendly] %>%;"><%= @goat_skills[:friendly] %>%</div>
-            </div>
-
-          <p>Climbing</p>
-            <div class="container">
-               <div class="skills climbing" style="width: <%= @goat_skills[:climbing] %>%;"><%= @goat_skills[:climbing] %>%</div>
-            </div>
-     </div>
        <% if @goat.image.attached? %>
          <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+         <p><%= @goat.bio %></p>
+
        <% else %>
           <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+          <p><%= @goat.bio %></p>
        <% end %>
-       </div>
+        <div id='goat-price' class='text-center'>
+          <p>$ <%= @goat.price_per_day %>/day</p>
+        </div>
+
+      </div>
+
+          <div class="container" id="stats">
+          <h4>Hearding</h4>
+          <div class="container">
+            <div class="skills hearding" style="width: <%= @goat_skills[:hearding] %>%;">🌳<%= @goat_skills[:hearding] %>%</div>
+          </div>
+
+          <h4>Cuteness</h4>
+            <div class="container">
+              <div class="skills cuteness" style="width: <%= @goat_skills[:cuteness] %>%;">🥹<%= @goat_skills[:cuteness] %>%</div>
+            </div>
+
+          <h4>Friendly</h4>
+            <div class="container">
+              <div class="skills friendly" style="width: <%= @goat_skills[:friendly] %>%;">🤗<%= @goat_skills[:friendly] %>%</div>
+            </div>
+
+          <h4>Climbing</h4>
+            <div class="container">
+               <div class="skills climbing" style="width: <%= @goat_skills[:climbing] %>%;">🐐<%= @goat_skills[:climbing] %>%</div>
+            </div>
+         </div>
+     </div>
            <!-- Booking Form Card -->
     <div id='booking-form' data-controller="check-booking-date">
       <div class="card sticky-top booking-card">
+
         <div  class="card-body">
           <h2 class="card-title">Book this Goat</h2>
 
@@ -60,7 +65,7 @@
             </div>
 
             <div class="form-group d-grid">
-              <%= f.submit 'Book Now', class: 'btn btn-primary btn-lg' %>
+              <%= f.submit 'Book Now', class: 'btn btn-dark btn-lg' %>
             </div>
           <% end %>
         </div>

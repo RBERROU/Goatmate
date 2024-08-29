@@ -129,9 +129,12 @@
   font-weight: bold;
   color: $brown;
   text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s;
 
   &:hover {
     text-decoration: none;
     color: $lightbrown;
+    transform: scale(1.1);
   }
 }

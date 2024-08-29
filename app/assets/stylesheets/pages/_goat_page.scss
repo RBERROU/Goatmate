@@ -1,11 +1,20 @@
 
+.card-info {
+  margin: 15px;
+}
+
+#stats {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: $softblack;
+}
+
 .big-goat-profile-pic {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid $brown;
-  margin: -50px auto 0;
+  border-radius: 5px;
+  margin: -40px auto 0;
 }
 
 .bookThisGoat {
@@ -26,14 +35,12 @@
 .goat-info {
   border-radius: 30px;
   margin: 10px;
-  display: flex;
   flex-direction: row;
-  align-items: center;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   background-color: $yellow;
-
+  width: 100%;
 }
 
 .goat-show-container {
@@ -44,15 +51,16 @@
 
 #goat-price {
   display: flex;
+  font-weight: bold;
   align-items: baseline;
   p {
-    font-size: 40px;
+    font-size: 20px;
     align-self: flex-start;
   }
 }
 
 #booking-form {
-  margin-left: 100px;
+  margin-left: 30px;
 }
 @media (max-width: 920px) {
   .goat-info {
@@ -69,7 +77,6 @@
 }
 
 * {box-sizing:border-box}
-
 
 
 .skills {
@@ -98,4 +105,8 @@
 .climbing {
   background-color: #6a5143;
   border-radius: 30px;
+}
+
+.card-body {
+  width: 280px;
 }
