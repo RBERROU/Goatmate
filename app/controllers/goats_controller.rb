@@ -1,9 +1,7 @@
 class GoatsController < ApplicationController
-
-  before_action :set_goat, only: [:show]
+  before_action :set_goat, only: [:show, :destroy]
 
   def show
-    @goat = Goat.find(params[:id])
     @booking = @goat.build_booking
   end
 
@@ -13,7 +11,7 @@ class GoatsController < ApplicationController
 
   def create
     @goat = Goat.new(goat_params)
-    @goat.user = current_user # Assuming you have user authentication and each goat belongs to a user
+    @goat.user = current_user
 
     if @goat.save
       redirect_to root_path, notice: 'Goat was successfully created.'
@@ -22,13 +20,9 @@ class GoatsController < ApplicationController
     end
   end
 
-  def random
-    random_goat = Goat.order("RANDOM()").first
-    if random_goat
-      redirect_to goat_path(random_goat)
-    else
-      redirect_to root_path, alert: 'No goats available.'
-    end
+  def destroy
+    @goat.destroy
+    redirect_to dashboard_path, notice: 'Goat was successfully deleted.'
   end
 
   private
