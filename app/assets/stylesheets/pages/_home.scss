@@ -1,18 +1,18 @@
 // Specific CSS for your home-page
 
   .header {
-    font-size: 70px;
-    color: #ede7d2;
+    font-size: 90px;
+    color: $yellow;
   }
 
   #tagline {
     font-size: 20px;
-    color:rgb(35, 37, 35)
+    color: $softblack;
   }
 
   .button-52 {
     color: rgb(0, 1, 0);
-    background:  rgb(238, 241, 230);
+    background:  $yellow;
     border: 2px solid #111;
     border-radius: 10px;
     box-sizing: border-box;
@@ -24,8 +24,8 @@
     text-decoration: none;
 
     &:hover {
-      color: rgb(238, 241, 230);
-      background: #323028;
+      color: $yellow;
+      background: $brown;
       text-decoration: none;
     }
   }
@@ -36,21 +36,29 @@
     height: 500px;
 }
 .goat-image {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 5px;
+    margin: -60px auto 0;
 }
 .goat-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    row-gap: 50px;
+    margin-top: 60px;
 }
 .goat-card {
     width: 200px;
     margin-bottom: 20px;
     text-align: center;
+    background: $yellow;
+    border: 3px solid $brown;
+    border-radius: 10px;
+    h3 {
+      margin-top: 15px;
+    }
 }
 .card-group .card {
     margin-bottom: 10px;
@@ -81,14 +89,14 @@
     .card-body {
       .card-title {
         font-size: 20px;
-        color: #323028;
+        color: $brown;
         font-family: "Nunito", "Helvetica", "sans-serif";
         font-weight: bold;
       }
 
       .card-text {
         font-size: 15px;
-        color: #585353;
+        color: $lightbrown;
         font-family:  "Work Sans", "Helvetica", "sans-serif";
         font-weight: 300;
     }
@@ -98,17 +106,19 @@
 
 
 .goats-rent-container {
-  background-color: #878282;
+  background-color: $lightbrown;
   border: none;
+  background:linear-gradient($green, $yellow 90%);
+  color: $brown;
 }
 
 .goat-name-link {
   font-weight: bold;
-  color: #323028;
+  color: $brown;
   text-decoration: none;
 
   &:hover {
     text-decoration: none;
-    color: #1e1e1d;
+    color: $lightbrown;
   }
 }
