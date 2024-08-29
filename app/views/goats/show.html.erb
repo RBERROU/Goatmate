@@ -47,12 +47,11 @@
           <%= simple_form_for([@goat, @booking], html: { class: 'booking-form' }) do |f| %>
             <div class="form-group mb-3">
               <%= f.label :rent_start, 'Start Date' %>
-              <%= f.date_field :rent_start, class: 'form-control', data: { action: "input->check-booking-date#updateEndDate", check_booking_date_target: "rentStart" }, min: (Date.today + 1).to_s %>
+              <%= f.date_field :rent_start, class: 'form-control', data: { action: "input->check-booking-date#updateEndDate", check_booking_date_target: "rentStart" }, min: Date.today.to_s %>
             </div>
 
             <div class="form-group mb-3">
               <%= f.label :rent_end, 'End Date' %>
-              <% min_date = (Date.today + 1).to_s %>
               <%= f.date_field :rent_end, class: 'form-control', data: { check_booking_date_target: "rentEnd" } %>
             </div>
 
