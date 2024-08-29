@@ -88,7 +88,7 @@ Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'pending',
+  status: ['pending', 'approved', 'rejected'].sample,
   rent_start: rent_start,
   rent_end: Faker::Date.between(from: rent_start, to: rent_start + 4.days)
 )
@@ -97,7 +97,7 @@ Booking.create!(
   goat: Goat.all.sample,
   user: non_owner2,
   total_price: rand(30..90),
-  status: 'pending',
+  status: ['pending', 'approved', 'rejected'].sample,
   rent_start: rent_start,
   rent_end: Faker::Date.between(from: rent_start, to: rent_start + 10.days)
 )
@@ -106,7 +106,7 @@ Booking.create!(
   goat: Goat.all.sample,
   user: non_owner1,
   total_price: rand(30..90),
-  status: 'pending',
+  status: ['pending', 'approved', 'rejected'].sample,
   rent_start: rent_start,
   rent_end: Faker::Date.between(from: rent_start, to: rent_start + 2.days)
 )
