@@ -1,38 +1,63 @@
+
 <div class="container mt-5">
    <div class="goat-show-container">
-       <div class="goat-info user-select-none">
-     <div>
-        <div>
+       <div class="goat-info user-select-none d-flex">
+      <div class="card-info">
+        <div >
           <h1 class='goat-name'><%= @goat.name %></h1>
-          <h6><%= @goat.bio %></h6>
         </div>
-        <div id='goat-price' class='text-center'>
-          <h2>$</h2>
-          <h3><%= @goat.price_per_day %></h3>
-          <h4>/day</h4>
-        </div>
-     </div>
        <% if @goat.image.attached? %>
          <img src="<%= url_for(@goat.image) %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+         <p><%= @goat.bio %></p>
+
        <% else %>
           <img src="<%= asset_path('default_goat.jpg') %>" alt="<%= @goat.name %>" class="big-goat-profile-pic m-5">
+          <p><%= @goat.bio %></p>
        <% end %>
-       </div>
+        <div id='goat-price' class='text-center'>
+          <p>$ <%= @goat.price_per_day %>/day</p>
+        </div>
+
+      </div>
+
+          <div class="container" id="stats">
+          <h4>Hearding</h4>
+          <div class="container">
+            <div class="skills hearding" style="width: <%= @goat_skills[:hearding] %>%;">🌳<%= @goat_skills[:hearding] %>%</div>
+          </div>
+
+          <h4>Cuteness</h4>
+            <div class="container">
+              <div class="skills cuteness" style="width: <%= @goat_skills[:cuteness] %>%;">🥹<%= @goat_skills[:cuteness] %>%</div>
+            </div>
+
+          <h4>Friendly</h4>
+            <div class="container">
+              <div class="skills friendly" style="width: <%= @goat_skills[:friendly] %>%;">🤗<%= @goat_skills[:friendly] %>%</div>
+            </div>
+
+          <h4>Climbing</h4>
+            <div class="container">
+               <div class="skills climbing" style="width: <%= @goat_skills[:climbing] %>%;">🐐<%= @goat_skills[:climbing] %>%</div>
+            </div>
+         </div>
+     </div>
            <!-- Booking Form Card -->
-    <div id='booking-form'>
+    <div id='booking-form' data-controller="check-booking-date">
       <div class="card sticky-top booking-card">
+
         <div  class="card-body">
           <h2 class="card-title">Book this Goat</h2>
 
           <%= simple_form_for([@goat, @booking], html: { class: 'booking-form' }) do |f| %>
             <div class="form-group mb-3">
               <%= f.label :rent_start, 'Start Date' %>
-              <%= f.date_field :rent_start, class: 'form-control' %>
+              <%= f.date_field :rent_start, class: 'form-control', data: { action: "input->check-booking-date#updateEndDate", check_booking_date_target: "rentStart" }, min: Date.today.to_s %>
             </div>
 
             <div class="form-group mb-3">
               <%= f.label :rent_end, 'End Date' %>
-              <%= f.date_field :rent_end, class: 'form-control' %>
+              <%= f.date_field :rent_end, class: 'form-control', data: { check_booking_date_target: "rentEnd" } %>
             </div>
 
             <div class="form-group mb-3">
@@ -40,7 +65,7 @@
             </div>
 
             <div class="form-group d-grid">
-              <%= f.submit 'Book Now', class: 'btn btn-primary btn-lg' %>
+              <%= f.submit 'Book Now', class: 'btn btn-dark btn-lg' %>
             </div>
           <% end %>
         </div>
