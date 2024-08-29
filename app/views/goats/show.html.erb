@@ -40,23 +40,24 @@
             <div class="container">
                <div class="skills climbing" style="width: <%= @goat_skills[:climbing] %>%;">🐐<%= @goat_skills[:climbing] %>%</div>
             </div>
-        </div>
+         </div>
+     </div>
+           <!-- Booking Form Card -->
+    <div id='booking-form' data-controller="check-booking-date">
+      <div class="card sticky-top booking-card">
 
-        </div>
-    <div id='booking-form'>
-      <div class="card booking-card">
         <div  class="card-body">
           <h2 class="card-title">Book this Goat</h2>
 
           <%= simple_form_for([@goat, @booking], html: { class: 'booking-form' }) do |f| %>
             <div class="form-group mb-3">
               <%= f.label :rent_start, 'Start Date' %>
-              <%= f.date_field :rent_start, class: 'form-control' %>
+              <%= f.date_field :rent_start, class: 'form-control', data: { action: "input->check-booking-date#updateEndDate", check_booking_date_target: "rentStart" }, min: Date.today.to_s %>
             </div>
 
             <div class="form-group mb-3">
               <%= f.label :rent_end, 'End Date' %>
-              <%= f.date_field :rent_end, class: 'form-control' %>
+              <%= f.date_field :rent_end, class: 'form-control', data: { check_booking_date_target: "rentEnd" } %>
             </div>
 
             <div class="form-group mb-3">
