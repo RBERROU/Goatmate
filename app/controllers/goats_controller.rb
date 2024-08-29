@@ -5,6 +5,12 @@ class GoatsController < ApplicationController
   def show
     @goat = Goat.find(params[:id])
     @booking = @goat.build_booking
+    @goat_skills = {
+      hearding: rand(10..100),
+      cuteness: rand(10..100),
+      friendly: rand(10..100),
+      climbing: rand(10..100)
+    }
   end
 
   def new
