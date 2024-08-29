@@ -14,7 +14,13 @@
 
   <body>
     <%= render '/layouts/navbar' %>
-    <p class="notice mb-0 p-0"><%= notice %></p>
+      <% flash.each do |key, value| %>
+        <% if key == 'notice' %>
+          <div class="flash-message alert alert-info" data-controller="hide-flash">
+            <%= value %>
+          </div>
+        <% end %>
+      <% end %>
     <%= yield %>
   </body>
 </html>
