@@ -43,6 +43,15 @@ class GoatsController < ApplicationController
     redirect_to dashboard_path, notice: 'Goat was successfully deleted.'
   end
 
+  def random
+    @goat = Goat.order('RANDOM()').first
+    if @goat
+      redirect_to goat_path(@goat) # Redirect to the goat's show page
+    else
+      redirect_to root_path, alert: "No goats available."
+    end
+  end
+
   private
 
   def set_goat
