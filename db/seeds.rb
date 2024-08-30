@@ -24,6 +24,13 @@ Goat.destroy_all
 User.destroy_all
 
 puts "Creating users..."
+# Create Romain user
+
+romain = User.create!(
+  email: "romain.a.berrou@gmail.com",
+  password: "fakepass",
+  owner: 1
+)
 
 # Create 2 owners
 owner1 = User.create!(
@@ -135,7 +142,7 @@ Goat.create!(
   name: Faker::Creature::Animal.unique.name,
   bio: Faker::Lorem.paragraph(sentence_count: 1),
   price_per_day: rand(10..30),
-  user: owner1
+  user: romain
 ).tap do |goat|
   goat.image.attach(
     io: URI.open("https://images.unsplash.com/photo-1506076177893-89d54794ef41?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
@@ -159,7 +166,7 @@ Goat.create!(
   name: Faker::Creature::Animal.unique.name,
   bio: Faker::Lorem.paragraph(sentence_count: 1),
   price_per_day: rand(10..30),
-  user: non_owner2
+  user: romain
 ).tap do |goat|
   goat.image.attach(
     io: URI.open("https://images.unsplash.com/photo-1516160211234-a32007ecfc2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
