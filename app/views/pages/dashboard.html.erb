@@ -50,8 +50,8 @@
                     <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="img-fluid goat-image" />
                   <% end %>
                   <h3><%= goat.name %></h3>
-                  <p>Price per day: $<%= goat.price_per_day %></p>
-                  <%= button_to 'Delete', goat_path(goat), method: :delete, data: { confirm: 'Are you sure you want to delete this goat?' }, class: 'btn btn-danger mt-2', data: { turbo: false } %>
+                  <p class='mb-5'>Price per day: $<%= goat.price_per_day %></p>
+                  <%= button_to 'x', goat_path(goat), method: :delete, data: { confirm: 'Are you sure you want to delete this goat?' }, class: 'delete-goat-btn', data: { turbo: false } %>
                 </div>
               <% end %>
             </div>
