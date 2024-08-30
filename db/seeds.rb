@@ -76,6 +76,10 @@ image_paths = [
     user: i < 5 ? owner1 : owner2
   )
   goat.image.attach(io: File.open(Rails.root.join(image_paths[i])), filename: "goat#{i + 1}.jpg")
+  puts "goat created"
+  puts goat.image.attached?
+  puts goat.image
+  puts "================"
   # goat.image.attach(io: File.open(image_paths[i]), filename: "goat#{i + 1}.jpg")
 end
 
