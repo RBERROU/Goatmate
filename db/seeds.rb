@@ -75,7 +75,8 @@ image_paths = [
     price_per_day: rand(10..30),
     user: i < 5 ? owner1 : owner2
   )
-  goat.image.attach(io: File.open(image_paths[i]), filename: "goat#{i + 1}.jpg")
+  goat.image.attach(io: File.open(Rails.root.join(image_paths[i])), filename: "goat#{i + 1}.jpg")
+  # goat.image.attach(io: File.open(image_paths[i]), filename: "goat#{i + 1}.jpg")
 end
 
 puts "Creating bookings..."
