@@ -52,7 +52,7 @@
             <% @goats.each do |goat| %>
                <div class="goat-card p-1">
                   <% if goat.image.attached? %>
-                    <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="goat-image">
+                    <%= image_tag(goat.image, :class =>"goat-image") %>
                   <% else %>
                     <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="goat-image">
                   <% end %>
