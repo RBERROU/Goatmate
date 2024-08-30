@@ -15,7 +15,9 @@
           <p><%= @goat.bio %></p>
        <% end %>
         <div id='goat-price' class='text-center'>
-          <p>$ <%= @goat.price_per_day %>/day</p>
+          <h6 class='dollar-sign'>$</h6>
+          <h6 class='price-amount'><%= @goat.price_per_day %></h6>
+          <h6 class='a-day'>/day</h6>
         </div>
 
       </div>
