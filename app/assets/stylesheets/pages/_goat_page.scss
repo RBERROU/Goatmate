@@ -51,8 +51,21 @@
 
 #goat-price {
   display: flex;
+  flex-direction: row;
   font-weight: bold;
   align-items: baseline;
+  .dollar-sign {
+    font-size: 30px;
+    align-self: flex-start;
+  }
+  .price-amount {
+    font-size: 50px;
+    align-self: flex-end;
+  }
+  .a-day {
+    font-size: 20px;
+    align-self: flex-end;
+  }
   p {
     font-size: 20px;
     align-self: flex-start;
