@@ -71,7 +71,7 @@ image_paths = [
 10.times do |i|
   goat = Goat.create!(
     name: Faker::Creature::Animal.unique.name,
-    bio: Faker::Lorem.paragraph(sentence_count: 2),
+    bio: Faker::Lorem.paragraph(sentence_count: 1),
     price_per_day: rand(10..30),
     user: i < 5 ? owner1 : owner2
   )
