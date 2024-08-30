@@ -45,9 +45,9 @@
               <% @goats.each do |goat| %>
                 <div class="goat-card mb-3">
                   <% if goat.image.attached? %>
-                    <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="img-fluid goat-image" />
+                    <img src="<%= url_for(goat.image) %>" alt="<%= goat.name %>" class="goat-image" />
                   <% else %>
-                    <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="img-fluid goat-image" />
+                    <img src="<%= asset_path('goat1.jpg') %>" alt="<%= goat.name %>" class="goat-image" />
                   <% end %>
                   <h3><%= goat.name %></h3>
                   <p class='mb-5'>Price per day: $<%= goat.price_per_day %></p>
