@@ -51,36 +51,132 @@ non_owner2 = User.create!(
   owner: 0
 )
 
+owner1 = User.create!(
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 6),
+  owner: 1
+)
+
 puts "Creating goats..."
 
-# Paths to your 10 unique goat images
-image_paths = [
-  'app/assets/images/goat1.jpg',
-  'app/assets/images/goat2.jpg',
-  'app/assets/images/goat3.jpg',
-  'app/assets/images/goat4.jpg',
-  'app/assets/images/goat5.jpg',
-  'app/assets/images/goat6.jpg',
-  'app/assets/images/goat7.jpg',
-  'app/assets/images/goat8.jpg',
-  'app/assets/images/goat9.jpg',
-  'app/assets/images/goat10.jpg'
-]
-
-# Create 10 goats, 5 for each owner, with unique images
-10.times do |i|
-  goat = Goat.create!(
-    name: Faker::Creature::Animal.unique.name,
-    bio: Faker::Lorem.paragraph(sentence_count: 1),
-    price_per_day: rand(10..30),
-    user: i < 5 ? owner1 : owner2
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1532633378163-24c2c0da3c99?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat1.jpg"
   )
-  goat.image.attach(io: File.open(Rails.root.join(image_paths[i])), filename: "goat#{i + 1}.jpg")
-  puts "goat created"
-  puts goat.image.attached?
-  puts goat.image
-  puts "================"
-  # goat.image.attach(io: File.open(image_paths[i]), filename: "goat#{i + 1}.jpg")
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner2
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1524609864400-829f6a124032?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat2.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: non_owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://plus.unsplash.com/premium_photo-1664304299664-a8e2e2f80290?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat3.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: non_owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1524024973431-2ad916746881?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat4.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner2
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1505038348242-eb3fde2b728c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat5.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://plus.unsplash.com/premium_photo-1667099521475-fcd0e941b4ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z29hdHxlbnwwfHwwfHx8MA%3D%3D"),
+    filename: "goat6.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1506076177893-89d54794ef41?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
+    filename: "goat7.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: non_owner2
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1521916396286-3f65e9f0eddc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
+    filename: "goat8.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: non_owner2
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1516160211234-a32007ecfc2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
+    filename: "goat9.jpg"
+  )
+end
+
+Goat.create!(
+  name: Faker::Creature::Animal.unique.name,
+  bio: Faker::Lorem.paragraph(sentence_count: 1),
+  price_per_day: rand(10..30),
+  user: owner1
+).tap do |goat|
+  goat.image.attach(
+    io: URI.open("https://images.unsplash.com/photo-1529763062018-cd9b9ede3a80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGdvYXR8ZW58MHx8MHx8fDA%3D"),
+    filename: "goat10.jpg"
+  )
 end
 
 puts "Creating bookings..."
