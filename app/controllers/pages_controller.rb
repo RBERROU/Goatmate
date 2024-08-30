@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   def dashboard
     @bookings = current_user.bookings.includes(:goat)
     @goats = current_user.goats
+    @pending_bookings = Booking.pending_approval.joins(:goat).where(goats: { user_id: current_user.id })
   end
 end
