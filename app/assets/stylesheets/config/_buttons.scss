@@ -11,7 +11,7 @@
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  color:black;
+  color: $softblack;
 }
 
 .goat-btn:hover {
@@ -22,9 +22,15 @@
 
 
 #goat-add-submit:hover {
-  opacity: 1; /* Hover gradient */
+  opacity: 1;
 }
 
 .back-to-home-btn {
-  border-color: $light-gray;
+  background-color: $light-gray;
+}
+
+.back-to-home-btn:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  opacity: 1;
 }
