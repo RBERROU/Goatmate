@@ -138,3 +138,11 @@
     transform: scale(1.1);
   }
 }
+
+.goats-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 50px;
+  margin-top: 60px;
+}
